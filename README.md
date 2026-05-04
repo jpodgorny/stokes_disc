@@ -35,7 +35,7 @@ the integration upper limit M_i (i.e. representing the corona size),
 the position angle on the sky, and the overall Dopler shift.
 No relativistic effects inside the system are taken into account.
 All components are static. The reflected output is normalized
-to the ionization parameter xi = 5 erg cm s^{-1} = 4*pi*F_tot/n_H,
+to the ionization parameter xi = 5 erg cm s^{-1} = 4πF_tot/n_H,
 where F_tot is the total flux between 10^(-1.1) keV and 10^(2.4) keV
 and n_H = 10^(15) cm^{-3} and multiplied by 1e-20 for storage convenience.
 The size of the corona is compensated by a 1/M_i^2 factor
