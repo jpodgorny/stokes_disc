@@ -23,7 +23,7 @@ reprocessing tables that were precomputed for nearly neutral disc reflection.
 In this case of xsstokes_disc, it is reflection from distant regions
 of a geometrically thin optically thick accretion disc residing in the
 equatorial plane around a central black hole. The source of emission
-is a hot X-ray corona illuminating isotropically between
+is a hot X-ray corona illuminating isotropically in intensity between
 0 <= cos_incl_incident <= M_i, to represent distant disc reflection.
 The local disc reflection was computed using the STOKES code and more
 details are given in Podgorný J. et al. (2022). More details on the
@@ -31,10 +31,16 @@ integration and implementation for arbitrary polarisation state in XSPEC
 are given in Podgorný J. et al. (2024). Apart from the incident
 polarisation degree and angle, the model then also depends on
 observer's inclination angle, the primary power-law index Gamma,
-the integration upper limit M (i.e. representing the corona size),
+the integration upper limit M_i (i.e. representing the corona size),
 the position angle on the sky, and the overall Dopler shift.
 No relativistic effects inside the system are taken into account.
-All components are static.
+All components are static. The reflected output is normalized
+to the ionization parameter xi = 5 erg cm s^{-1} = 4*pi*F_tot/n_H,
+where F_tot is the total flux between 10^(-1.1) keV and 10^(2.4) keV
+and n_H = 10^(15) cm^{-3} and multiplied by 1e-20 for storage convenience.
+The size of the corona is compensated by a 1/M_i^2 factor
+in the normalization.
+
 
 For any issues regarding the use of xsstokes_disc, please, contact J. Podgorný at 
 [jakub.podgorny@asu.cas.cz](mailto:jakub.podgorny@asu.cas.cz) or M. Dovčiak

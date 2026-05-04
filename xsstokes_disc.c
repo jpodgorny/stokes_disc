@@ -1,8 +1,8 @@
-/* stokes - polarized reflection from an axially symmetric surface illuminated 
- *	    isotropically by an (un)polarised power law,
+/* stokes - polarized nearly neutral reflection (xi=5) from an axially symmetric
+ *      surface illuminated isotropically by an (un)polarised power law,
  *        - an example of a polarisation subroutine for XSPEC using disc reflection 
  *	    tables computed with STOKES code (Podgorny et al. 2022), integrated between
- *	    0 <= cos_incl_incident <= M only to represent distant disc reflection
+ *	    0 <= cos_incl_incident <= M_i only to represent distant disc reflection
  * 
  *
  * This subroutine computes the emission from a neutral slab that is illuminated 
@@ -96,7 +96,7 @@ return(0);
 *******************************************************************************/
 
 #define REFSPECTRA1 "stokes-neutral-iso-UNPOL-disc.fits\0" // UNPOLARISED
-#define REFSPECTRA2 "stokes-neutral-iso-HRPOL-disc.fits\0" // HORIZONTALLY POLARISED
+#define REFSPECTRA2 "stokes-neutral-iso-VRPOL-disc.fits\0" // VERTICALLY POLARISED
 #define REFSPECTRA3 "stokes-neutral-iso-45DEG-disc.fits\0" // DIAGONALLY POLARISED
 
 #define PI   3.14159265358979
@@ -193,17 +193,17 @@ if(stokes){//we use polarised tables
 
   //Let's perform the transformation to initial primary polarisation degree and angle
   for(ie = 0; ie < ne; ie++) {
-//        UNPOLARISED i = 0,1,2; HORIZONTALLY POLARISED i = 3,4,5, 45DEG POLARISED i = 6,7,8     
+//        UNPOLARISED i = 0,1,2; VERTICALLY POLARISED i = 3,4,5, 45DEG POLARISED i = 6,7,8
     for(j=0; j<=2; j++) Smatrix[j+3][ie] -= Smatrix[j][ie];
     for(j=0; j<=2; j++) Smatrix[j+6][ie] -= Smatrix[j][ie];
     far[ie] = Smatrix[0][ie] +
-                        pol_deg * ( -Smatrix[3][ie] * cos(2.*(chi)) +
+                        pol_deg * ( Smatrix[3][ie] * cos(2.*(chi)) +
                                     Smatrix[6][ie] * sin(2.*(chi)) );
     qar[ie] = Smatrix[1][ie] +
-                        pol_deg * ( -Smatrix[4][ie] * cos(2.*(chi))+
+                        pol_deg * ( Smatrix[4][ie] * cos(2.*(chi))+
                                     Smatrix[7][ie] * sin(2.*(chi)) );
     uar[ie] = Smatrix[2][ie] +
-                        pol_deg * ( -Smatrix[5][ie] * cos(2.*(chi))+
+                        pol_deg * ( Smatrix[5][ie] * cos(2.*(chi))+
                                     Smatrix[8][ie] * sin(2.*(chi)) );
     var[ie] = 0.;   
   }
