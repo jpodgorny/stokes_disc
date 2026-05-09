@@ -119,7 +119,7 @@ Required files
 
 * **Source code files**
   - xsstokes_disc.c
-  - lmodel-stokesni.dat  
+  - lmodel-stdisc.dat  
 * **reprocessing tables**
   (for reprocessing of photons in distant discs, more details in Podgorný J. et al. (2024))
   - [23576508.zip](https://doi.org/10.6084/m9.figshare.23576508)  
