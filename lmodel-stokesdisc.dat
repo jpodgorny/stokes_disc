@@ -1,4 +1,4 @@
-stokesdisc   8  0.         1.0e20          c_stokesnidisc  add  0  1
+stdisc   8  0.         1.0e20          c_stokesnidisc  add  0  1
 Size " "     0.3   0.1   0.1   1.0   1.0   0.01
 PhoIndex " "     2.0     1.4     1.4     3.      3.      0.1
 cos_incl " "     0.775   0.025   0.025   0.975   0.975   0.01
