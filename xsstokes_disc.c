@@ -1,4 +1,4 @@
-/* stokes - polarized nearly neutral reflection (xi=5) from an axially symmetric
+/* stokes_disc - polarized nearly neutral reflection (xi=5) from an axially symmetric
  *      surface illuminated isotropically by an (un)polarised power law,
  *        - an example of a polarisation subroutine for XSPEC using disc reflection 
  *	    tables computed with STOKES code (Podgorny et al. 2022), integrated between
