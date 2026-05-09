@@ -129,11 +129,11 @@ Installation and usage in XSPEC
 ===============================
 
 1. **Download the source code files**
-   into a directory where you want to install the model, e.g. '/path/to/xsstokes_disc-master/'
+   into a directory where you want to install the model, e.g. '/path/to/stokes_disc-master/'
 
 2. **Download the FITS files** 
    [23576508.zip](https://doi.org/10.6084/m9.figshare.23576508) 
-   with the tables into the directory with xsstokes_disc, i.e. '/path/to/xsstokes_disc-master'.
+   with the tables into the directory with stokes_disc, i.e. '/path/to/stokes_disc-master'.
 
 3. **Unzip the reflection tables** with polarisation information, e.g. by the command:
 
@@ -143,27 +143,27 @@ Installation and usage in XSPEC
 
    The code is compiled inside XSPEC with the following command (assuming all 
    the source files and FITS tables are in the directory 
-   '/path/to/xsstokes_disc-master'):
+   '/path/to/stokes_disc-master'):
 
-   `initpackage stokesdisc lmodel-stokesdisc.dat /path/to/xsstokes_disc-master`
+   `initpackage stdisc lmodel-stdisc.dat /path/to/stokes_disc-master`
 
    **Note**:
    Your XSPEC installation must have been originally installed from the source 
-   code distribution. Local models, like xsstokes_disc, cannot be used if the XSPEC 
+   code distribution. Local models, like stokes_disc, cannot be used if the XSPEC 
    was originally installed from the pre-compiled binary distribution.
 
-5. **Load the xsstokes_disc model** into XSPEC:
+5. **Load the stokes_disc model** into XSPEC:
    
-   To use the xsstokes_disc model inside XSPEC, first the model package needs to be 
-   loaded and also setup a directory containing the xsstokes_disc set:
+   To use the stokes_disc model inside XSPEC, first the model package needs to be 
+   loaded and also setup a directory containing the stokes_disc set:
 
-   `lmod stokesdisc /path/to/xsstokes_disc-master`
+   `lmod stdisc /path/to/stokes_disc-master`
 
-   `xset XSDIR /path/to/xsstokes_disc-master`
+   `xset XSDIR /path/to/stokes_disc-master`
 
-6. Then the **xsstokes_disc model may be used** in the usual way, e.g.:
+6. Then the **stokes_disc model may be used** in the usual way, e.g.:
 
-   `mo stokesdisc`
+   `mo stdisc`
 
    **Note**:
    In case of segmentation fault, one may need to increase the stack size before 
@@ -182,7 +182,7 @@ Viewing the model in XSPEC
 One usually needs to have polarisation data sets loaded for all three stokes
 parameters to view the polarisation properties predicted by a model inside XSPEC.
 The model is then shown in the energy range covered by, and with the energy binning
-of, these data sets. To overcome these disadvantages, the xsstokes_disc model provides
+of, these data sets. To overcome these disadvantages, the stokes_disc model provides
 a parameter (par8) that defines the output of the model, e.g. to show the model
 prediction for the polarisation degree, one needs to set par8 to 5, see Section
 [Model parameters](#model-parameters). In this case, dummy response may be used
@@ -225,9 +225,9 @@ One can see the model predicted polarisation properties in the following way:
 
    `ignore *:**-1.`
 
-4. **Set xsstokes_disc par8 to -1**
+4. **Set stokes_disc par8 to -1**
 
-   To be able to use the traditional way of using the polarisation data with the model in XSPEC, one needs to set the xsstokes_disc parameter par8 to -1:
+   To be able to use the traditional way of using the polarisation data with the model in XSPEC, one needs to set the stokes_disc parameter par8 to -1:
 
    `newpar 8 -1 -1 -1 -1 10 10`
 
