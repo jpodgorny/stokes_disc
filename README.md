@@ -20,7 +20,7 @@ of incident polarisation and this model interpolates for any primary
 polarisation state. In addition the model possesses other properties of the
 reprocessing tables that were precomputed for nearly neutral disc reflection.
 
-In this case of xsstokes_disc, it is reflection from distant regions
+In this case of stokes_disc, it is reflection from distant regions
 of a geometrically thin optically thick accretion disc residing in the
 equatorial plane around a central black hole. The source of emission
 is a hot X-ray corona illuminating isotropically in intensity between
@@ -42,7 +42,7 @@ The size of the corona is compensated by a 1/M_i^2 factor
 in the normalization.
 
 
-For any issues regarding the use of xsstokes_disc, please, contact J. Podgorný at 
+For any issues regarding the use of stokes_disc, please, contact J. Podgorný at 
 [jakub.podgorny@asu.cas.cz](mailto:jakub.podgorny@asu.cas.cz) or M. Dovčiak
 [michal.dovciak@asu.cas.cz](mailto:michal.dovciak@asu.cas.cz).
 
