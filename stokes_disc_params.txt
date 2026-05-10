@@ -1,3 +1,12 @@
+Version
+-------
+
+Version 1.1.
+
+This is version contains several initial updates, primarily in using
+the Simpson and trapezoidal rules for integration in the uniform distribution
+of incident angles for the illumination of the nearly neutral disc.
+
 Model description
 -----------------
 
