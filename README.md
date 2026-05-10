@@ -1,11 +1,22 @@
 Table of contents
 =================
 
+* [Version](#version)
 * [Model description](#model-description)
 * [References](#references)
 * [Model parameters](#model-parameters)
 * [Required files](#required-files)
 * [Installation and usage in XSPEC](#installation-and-usage-in-xspec)
+
+
+Version
+=================
+
+Version 1.1.
+
+This is version contains several initial updates, primarily in using
+the Simpson and trapezoidal rules for integration in the uniform distribution
+of incident angles for the illumination of the nearly neutral disc.
 
 
 Model description
