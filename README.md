@@ -48,7 +48,7 @@ No relativistic effects inside the system are taken into account.
 All components are static. The reflected output is normalized
 to the ionization parameter xi = 5 erg cm s^{-1} = 4πF_tot/n_H,
 where F_tot is the total flux between 10^(-1.1) keV and 10^(2.4) keV
-and n_H = 10^(15) cm^{-3} and multiplied by 1e-20 for storage convenience.
+and n_H = 10^(15) cm^{-3} and multiplied by 1e-21 for storage convenience.
 The size of the corona is compensated by a 1/M_i^2 factor
 in the normalization.
 
