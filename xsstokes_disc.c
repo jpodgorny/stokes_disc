@@ -114,7 +114,9 @@ extern void   tabintxflt(float* ear, int ne, float* param, const int npar,
 int stokesnidisc(const double *ear, int ne, const double *param, int ifl,
             double *photar, double *photer, const char* init) {
 
+#ifdef OUTSIDE_XSPEC
 FILE   *fw;
+#endif
 static char   xsdir[255]="";
 static char   pname[128]="XSDIR", pinc_degrees[128] = "inc_degrees";
 static char refspectra[3][255];
@@ -239,7 +241,7 @@ fprintf(fw, "chi         %12.6f\n", param[4]);
 fprintf(fw, "pos_ang        %12.6f\n", param[5]);
 fprintf(fw, "zshift      %12.6f\n", param[6]);
 fprintf(fw, "Stokes      %12d\n", (int) param[7]);
-fprintf(fw, "inc_degrees      %12.6f\n", x0);
+fprintf(fw, "inc_degrees      %12.6f\n", inc_tot);
 fclose(fw);
 #endif
 /******************************************************************************/
@@ -282,18 +284,22 @@ else {
     if (pa2[ie] < pa2min) pa2min = pa2[ie];
     if (pa2[ie] > pa2max) pa2max = pa2[ie];
   }
+  #ifdef OUTSIDE_XSPEC
   fw = fopen("stokes.dat", "w");
+  #endif
   for (ie = 0; ie < ne; ie++) {
     if ((pamax + pamin) > 180.) pa[ie] -= 180.;
     if ((pamax + pamin) < -180.) pa[ie] += 180.;
     if ((pa2max + pa2min) > 180.) pa2[ie] -= 180.;
     if ((pa2max + pa2min) < -180.) pa2[ie] += 180.;
+    #ifdef OUTSIDE_XSPEC
     fprintf(fw,
       "%E\t%E\t%E\t%E\t%E\t%E\t%E\t%E\n", 
       0.5 * (ear[ie] + ear[ie+1]), far[ie] / (ear[ie+1] - ear[ie]), 
       qar_final[ie] / (ear[ie+1] - ear[ie]), 
       uar_final[ie] / (ear[ie+1] - ear[ie]), 
       var[ie] / (ear[ie+1] - ear[ie]), pd[ie], pa[ie], pa2[ie]);
+  #endif
 //interface with XSPEC..........................................................
     if (stokes ==  1) photar[ie] = far[ie];
     if (stokes ==  2) photar[ie] = qar_final[ie];
@@ -306,7 +312,9 @@ else {
     if (stokes ==  9) photar[ie] = uar_final[ie] / (far[ie]+1e-99) * (ear[ie + 1] - ear[ie]);
     if (stokes == 10) photar[ie] = var[ie] / (far[ie]+1e-99) * (ear[ie + 1] - ear[ie]);
   }
+  #ifdef OUTSIDE_XSPEC
   fclose(fw);
+  #endif
 }
 
 return 0;
